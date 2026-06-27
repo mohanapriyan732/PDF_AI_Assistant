@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Hugging Face cache
+hf_cache/
+
+# LangChain database
+chroma_langchain_db/
+
+# Uploaded files
+uploads/
+
+# VS Code settings
+.vscode/
