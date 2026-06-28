@@ -2,109 +2,86 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PDF AI Assistant</title>
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
-
 <body>
+<div class="page-shell">
+  <div class="background-glow"></div>
+  <div class="background-shape shape-1"></div>
+  <div class="background-shape shape-2"></div>
+  <div class="background-shape shape-3"></div>
 
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand-panel">
+        <div class="brand-mark">AI</div>
+        <div>
+          <h2>PDF Document Assistant</h2>
+          <p>Premium AI document search with a sleek, modern interface.</p>
+        </div>
+      </div>
 
-<div class="app">
+      <div id="uploadCard" class="upload-card">
+        <div class="upload-badge">Upload</div>
+        <div class="upload-icon" aria-hidden="true">📄</div>
+        <div class="upload-copy">
+          <h3>Drop your PDF here</h3>
+          <p>Drag ;& drop or browse to add a document for fast AI insights.</p>
+        </div>
+        <button id="browseBtn" class="btn btn-primary" type="button">Browse PDF</button>
+        <span id="fileName" class="upload-file">No file selected</span>
+        <input type="file" id="fileInput" accept="application/pdf" hidden>
+      </div>
 
+      <div class="sidebar-stats">
+        <div class="stat-card">
+          <span>Document</span>
+          <strong>Attention Paper</strong>
+        </div>
+        <div class="stat-card">
+          <span>AI Engine</span>
+          <strong>Gemini 2.5</strong>
+        </div>
+        <div class="stat-card">
+          <span>Technology</span>
+          <strong>LangChain</strong>
+        </div>
+      </div>
+    </aside>
 
-<div class="sidebar">
+    <main class="chat">
+      <header class="chat-header">
+        <div>
+          <p class="eyebrow">AI Assistant</p>
+          <h1>Ask anything from your PDF</h1>
+          <p class="subtle">The assistant answers using document context only. Keep your queries concise for best results.</p>
+        </div>
+        <div class="assistant-avatar">🤖</div>
+      </header>
 
-<h2>🤖 PDF AI</h2>
+      <section id="messages" class="messages-panel">
+        <div class="message bot animate-fade">
+          <div class="message-header">
+            <span class="message-avatar">🤖</span>
+            <span class="message-role">Assistant</span>
+          </div>
+          <p>Hello 👋<br>I can answer questions from your PDF.</p>
+        </div>
+      </section>
 
-<p>RAG Assistant</p>
-
-<div class="card">
-<p>📄 Document</p>
-<b>Attention Paper</b>
+      <div class="input-area">
+        <input id="question" placeholder="Type your question..." autocomplete="off">
+        <button onclick="askQuestion()" class="btn btn-send">Send</button>
+      </div>
+    </main>
+  </div>
 </div>
-
-
-<div class="card">
-<p>🧠 AI Model</p>
-<b>Gemini 2.5</b>
-</div>
-
-
-<div class="card">
-<p>⚡ Tech</p>
-<b>LangChain</b>
-</div>
-
-
-</div>
-
-
-
-<div class="chat">
-
-
-<header>
-
-<h1>PDF Document Assistant</h1>
-
-<p>Ask anything from your document</p>
-
-</header>
-
-
-
-<div id="messages">
-
-
-<div class="message bot">
-
-Hello 👋  
-<br>
-I can answer questions from your PDF.
-
-</div>
-
-
-</div>
-
-
-
-
-<div class="input-area">
-
-
-<input
-id="question"
-placeholder="Ask your question..."
->
-
-
-<button onclick="askQuestion()">
-Send
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
-
-
 </body>
 
 </html>
